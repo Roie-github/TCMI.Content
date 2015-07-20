@@ -11,7 +11,7 @@ namespace TCMI.Content
     /// <summary>
     /// Summary description for TCMIContent
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://tcmicrossroadcontent.apphb.com/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.None)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
