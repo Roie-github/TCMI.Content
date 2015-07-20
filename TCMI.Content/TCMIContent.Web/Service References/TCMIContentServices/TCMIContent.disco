@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/TCMI.Content/TCMIContent.asmx?wsdl" docRef="http://localhost/TCMI.Content/TCMIContent.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/TCMI.Content/TCMIContent.asmx" xmlns:q1="http://tcmicrossroadcontent.apphb.com/" binding="q1:TCMIContentSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/TCMI.Content/TCMIContent.asmx" xmlns:q2="http://tcmicrossroadcontent.apphb.com/" binding="q2:TCMIContentSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

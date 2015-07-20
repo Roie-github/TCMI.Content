@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tcmicrossroadcontent.apphb.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tcmicrossroadcontent.apphb.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tcmicrossroadcontent.apphb.com/">
+      <s:element name="AddPrayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="confidential" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPrayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPrayerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="confidential" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prayed" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePrayerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrayed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrayedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePrayedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnsweredPrayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnsweredPrayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AnsweredPrayerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Prayed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrayedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrayedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrayers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPrayersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrayersResult" type="tns:ArrayOfPrayer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrayer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prayer" nillable="true" type="tns:Prayer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prayer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Confidentiality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrayerRequest" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Received" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prayed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Answered" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddPrayerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPrayer" />
+  </wsdl:message>
+  <wsdl:message name="AddPrayerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPrayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrayerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePrayer" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrayerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePrayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrayedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePrayed" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrayedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePrayedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnsweredPrayerSoapIn">
+    <wsdl:part name="parameters" element="tns:AnsweredPrayer" />
+  </wsdl:message>
+  <wsdl:message name="AnsweredPrayerSoapOut">
+    <wsdl:part name="parameters" element="tns:AnsweredPrayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrayedSoapIn">
+    <wsdl:part name="parameters" element="tns:Prayed" />
+  </wsdl:message>
+  <wsdl:message name="PrayedSoapOut">
+    <wsdl:part name="parameters" element="tns:PrayedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrayersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrayers" />
+  </wsdl:message>
+  <wsdl:message name="GetPrayersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrayersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TCMIContentSoap">
+    <wsdl:operation name="AddPrayer">
+      <wsdl:input message="tns:AddPrayerSoapIn" />
+      <wsdl:output message="tns:AddPrayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <wsdl:input message="tns:UpdatePrayerSoapIn" />
+      <wsdl:output message="tns:UpdatePrayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <wsdl:input name="UpdatePrayed" message="tns:UpdatePrayedSoapIn" />
+      <wsdl:output name="UpdatePrayed" message="tns:UpdatePrayedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnsweredPrayer">
+      <wsdl:input message="tns:AnsweredPrayerSoapIn" />
+      <wsdl:output message="tns:AnsweredPrayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Prayed">
+      <wsdl:input message="tns:PrayedSoapIn" />
+      <wsdl:output message="tns:PrayedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrayers">
+      <wsdl:input message="tns:GetPrayersSoapIn" />
+      <wsdl:output message="tns:GetPrayersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TCMIContentSoap" type="tns:TCMIContentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPrayer">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/AddPrayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/UpdatePrayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/UpdatePrayed" style="document" />
+      <wsdl:input name="UpdatePrayed">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdatePrayed">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnsweredPrayer">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/AnsweredPrayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Prayed">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/Prayed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrayers">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/GetPrayers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TCMIContentSoap12" type="tns:TCMIContentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPrayer">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/AddPrayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/UpdatePrayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrayer">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/UpdatePrayed" style="document" />
+      <wsdl:input name="UpdatePrayed">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdatePrayed">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnsweredPrayer">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/AnsweredPrayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Prayed">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/Prayed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrayers">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/GetPrayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TCMIContent">
+    <wsdl:port name="TCMIContentSoap" binding="tns:TCMIContentSoap">
+      <soap:address location="http://localhost/TCMI.Content/TCMIContent.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TCMIContentSoap12" binding="tns:TCMIContentSoap12">
+      <soap12:address location="http://localhost/TCMI.Content/TCMIContent.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

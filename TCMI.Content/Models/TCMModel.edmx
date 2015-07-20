@@ -17,7 +17,7 @@
           <Property Name="PrayerRequest" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Received" Type="datetime" Nullable="false" />
           <Property Name="Prayed" Type="int" Nullable="false" />
-          <Property Name="Answered" Type="bit" />
+          <Property Name="Answered" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TCMIDBModelStoreContainer">
           <EntitySet Name="Prayers" EntityType="Self.Prayers" Schema="dbo" store:Type="Tables" />
@@ -26,23 +26,23 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TCMIDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TCMIDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Prayers" EntityType="TCMIDBModel.Prayer" />
+        </EntityContainer>
         <EntityType Name="Prayer">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Confidentiality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PrayerRequest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Confidentiality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrayerRequest" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Received" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Prayed" Type="Int32" Nullable="false" />
-          <Property Name="Answered" Type="Boolean" />
+          <Property Name="Answered" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="TCMIDBContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Prayers" EntityType="Self.Prayer" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,14 +53,14 @@
             <EntityTypeMapping TypeName="TCMIDBModel.Prayer">
               <MappingFragment StoreEntitySet="Prayers">
                 <ScalarProperty Name="Answered" ColumnName="Answered" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Confidentiality" ColumnName="Confidentiality" />
-                <ScalarProperty Name="PrayerRequest" ColumnName="PrayerRequest" />
-                <ScalarProperty Name="Received" ColumnName="Received" />
                 <ScalarProperty Name="Prayed" ColumnName="Prayed" />
+                <ScalarProperty Name="Received" ColumnName="Received" />
+                <ScalarProperty Name="PrayerRequest" ColumnName="PrayerRequest" />
+                <ScalarProperty Name="Confidentiality" ColumnName="Confidentiality" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

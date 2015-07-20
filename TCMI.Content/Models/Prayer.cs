@@ -11,9 +11,7 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    [MetadataType( typeof(PrayerMeta))]
+    
     public partial class Prayer
     {
         public int id { get; set; }
@@ -24,6 +22,6 @@ namespace Models
         public string PrayerRequest { get; set; }
         public System.DateTime Received { get; set; }
         public int Prayed { get; set; }
-        public Nullable<bool> Answered { get; set; }
+        public bool Answered { get; set; }
     }
 }

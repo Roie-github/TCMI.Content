@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRepository", "DataRepos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{42BAB6E8-10CB-4576-999E-BB316E5B98F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCMIContent.Web", "TCMIContent.Web\TCMIContent.Web.csproj", "{EEC9BD4A-6152-42D3-B35F-FB8C32036639}"
+	ProjectSection(ProjectDependencies) = postProject
+		{33BFA0C8-6646-4052-9BE8-B423537C84A2} = {33BFA0C8-6646-4052-9BE8-B423537C84A2}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +32,10 @@ Global
 		{42BAB6E8-10CB-4576-999E-BB316E5B98F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BAB6E8-10CB-4576-999E-BB316E5B98F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BAB6E8-10CB-4576-999E-BB316E5B98F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC9BD4A-6152-42D3-B35F-FB8C32036639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC9BD4A-6152-42D3-B35F-FB8C32036639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC9BD4A-6152-42D3-B35F-FB8C32036639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC9BD4A-6152-42D3-B35F-FB8C32036639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
