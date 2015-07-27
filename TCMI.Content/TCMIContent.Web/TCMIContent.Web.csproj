@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -140,8 +141,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Icon.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\InsertUpdate.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -152,6 +155,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -182,9 +187,15 @@
     <Content Include="Service References\TCMIContentServices\TCMIContent.Web.TCMIContentServices.UpdatePrayerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\TCMIContentServices\TCMIContent.Web.TCMIContentServices.RemovePrayerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\TCMIContentServices\TCMIContent.wsdl" />
     <Content Include="Views\Prayer\Index.cshtml" />
     <Content Include="Views\Prayer\Create.cshtml" />
+    <Content Include="Views\Prayer\Update.cshtml" />
+    <Content Include="Views\Prayer\Details.cshtml" />
+    <Content Include="Views\Prayer\Remove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

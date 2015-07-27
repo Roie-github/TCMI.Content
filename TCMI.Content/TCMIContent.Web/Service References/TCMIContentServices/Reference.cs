@@ -43,7 +43,7 @@ namespace TCMIContent.Web.TCMIContentServices {
         
         private int PrayedField;
         
-        private System.Nullable<bool> AnsweredField;
+        private bool AnsweredField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -160,7 +160,7 @@ namespace TCMIContent.Web.TCMIContentServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
-        public System.Nullable<bool> Answered {
+        public bool Answered {
             get {
                 return this.AnsweredField;
             }
@@ -227,6 +227,13 @@ namespace TCMIContent.Web.TCMIContentServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tcmicrossroadcontent.apphb.com/GetPrayers", ReplyAction="*")]
         System.Threading.Tasks.Task<TCMIContent.Web.TCMIContentServices.GetPrayersResponse> GetPrayersAsync(TCMIContent.Web.TCMIContentServices.GetPrayersRequest request);
+        
+        // CODEGEN: Generating message contract since element name RemovePrayerResult from namespace http://tcmicrossroadcontent.apphb.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tcmicrossroadcontent.apphb.com/RemovePrayer", ReplyAction="*")]
+        TCMIContent.Web.TCMIContentServices.RemovePrayerResponse RemovePrayer(TCMIContent.Web.TCMIContentServices.RemovePrayerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tcmicrossroadcontent.apphb.com/RemovePrayer", ReplyAction="*")]
+        System.Threading.Tasks.Task<TCMIContent.Web.TCMIContentServices.RemovePrayerResponse> RemovePrayerAsync(TCMIContent.Web.TCMIContentServices.RemovePrayerRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -636,6 +643,74 @@ namespace TCMIContent.Web.TCMIContentServices {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RemovePrayerRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RemovePrayer", Namespace="http://tcmicrossroadcontent.apphb.com/", Order=0)]
+        public TCMIContent.Web.TCMIContentServices.RemovePrayerRequestBody Body;
+        
+        public RemovePrayerRequest() {
+        }
+        
+        public RemovePrayerRequest(TCMIContent.Web.TCMIContentServices.RemovePrayerRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tcmicrossroadcontent.apphb.com/")]
+    public partial class RemovePrayerRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public RemovePrayerRequestBody() {
+        }
+        
+        public RemovePrayerRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RemovePrayerResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RemovePrayerResponse", Namespace="http://tcmicrossroadcontent.apphb.com/", Order=0)]
+        public TCMIContent.Web.TCMIContentServices.RemovePrayerResponseBody Body;
+        
+        public RemovePrayerResponse() {
+        }
+        
+        public RemovePrayerResponse(TCMIContent.Web.TCMIContentServices.RemovePrayerResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tcmicrossroadcontent.apphb.com/")]
+    public partial class RemovePrayerResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string RemovePrayerResult;
+        
+        public RemovePrayerResponseBody() {
+        }
+        
+        public RemovePrayerResponseBody(string RemovePrayerResult) {
+            this.RemovePrayerResult = RemovePrayerResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface TCMIContentSoapChannel : TCMIContent.Web.TCMIContentServices.TCMIContentSoap, System.ServiceModel.IClientChannel {
     }
@@ -827,6 +902,31 @@ namespace TCMIContent.Web.TCMIContentServices {
             TCMIContent.Web.TCMIContentServices.GetPrayersRequest inValue = new TCMIContent.Web.TCMIContentServices.GetPrayersRequest();
             inValue.Body = new TCMIContent.Web.TCMIContentServices.GetPrayersRequestBody();
             return ((TCMIContent.Web.TCMIContentServices.TCMIContentSoap)(this)).GetPrayersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        TCMIContent.Web.TCMIContentServices.RemovePrayerResponse TCMIContent.Web.TCMIContentServices.TCMIContentSoap.RemovePrayer(TCMIContent.Web.TCMIContentServices.RemovePrayerRequest request) {
+            return base.Channel.RemovePrayer(request);
+        }
+        
+        public string RemovePrayer(int id) {
+            TCMIContent.Web.TCMIContentServices.RemovePrayerRequest inValue = new TCMIContent.Web.TCMIContentServices.RemovePrayerRequest();
+            inValue.Body = new TCMIContent.Web.TCMIContentServices.RemovePrayerRequestBody();
+            inValue.Body.id = id;
+            TCMIContent.Web.TCMIContentServices.RemovePrayerResponse retVal = ((TCMIContent.Web.TCMIContentServices.TCMIContentSoap)(this)).RemovePrayer(inValue);
+            return retVal.Body.RemovePrayerResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<TCMIContent.Web.TCMIContentServices.RemovePrayerResponse> TCMIContent.Web.TCMIContentServices.TCMIContentSoap.RemovePrayerAsync(TCMIContent.Web.TCMIContentServices.RemovePrayerRequest request) {
+            return base.Channel.RemovePrayerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<TCMIContent.Web.TCMIContentServices.RemovePrayerResponse> RemovePrayerAsync(int id) {
+            TCMIContent.Web.TCMIContentServices.RemovePrayerRequest inValue = new TCMIContent.Web.TCMIContentServices.RemovePrayerRequest();
+            inValue.Body = new TCMIContent.Web.TCMIContentServices.RemovePrayerRequestBody();
+            inValue.Body.id = id;
+            return ((TCMIContent.Web.TCMIContentServices.TCMIContentSoap)(this)).RemovePrayerAsync(inValue);
         }
     }
 }

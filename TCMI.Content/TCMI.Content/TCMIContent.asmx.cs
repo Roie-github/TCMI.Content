@@ -102,6 +102,16 @@ namespace TCMI.Content
             PrayerRepository db = new PrayerRepository();
             return db.GetAll().ToList();
         }
+
+        [WebMethod]
+        public string RemovePrayer(int id)
+        {
+            //to do sanitized parameters
+
+            PrayerRepository db = new PrayerRepository();
+            string returnValue = db.RemoveOnSubmit(id);
+            return returnValue;
+        }
         
     }
 }

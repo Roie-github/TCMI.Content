@@ -107,9 +107,23 @@
           <s:element minOccurs="0" maxOccurs="1" name="PrayerRequest" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Received" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Prayed" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Answered" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Answered" type="s:boolean" />
         </s:sequence>
       </s:complexType>
+      <s:element name="RemovePrayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemovePrayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemovePrayerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AddPrayerSoapIn">
@@ -148,6 +162,12 @@
   <wsdl:message name="GetPrayersSoapOut">
     <wsdl:part name="parameters" element="tns:GetPrayersResponse" />
   </wsdl:message>
+  <wsdl:message name="RemovePrayerSoapIn">
+    <wsdl:part name="parameters" element="tns:RemovePrayer" />
+  </wsdl:message>
+  <wsdl:message name="RemovePrayerSoapOut">
+    <wsdl:part name="parameters" element="tns:RemovePrayerResponse" />
+  </wsdl:message>
   <wsdl:portType name="TCMIContentSoap">
     <wsdl:operation name="AddPrayer">
       <wsdl:input message="tns:AddPrayerSoapIn" />
@@ -172,6 +192,10 @@
     <wsdl:operation name="GetPrayers">
       <wsdl:input message="tns:GetPrayersSoapIn" />
       <wsdl:output message="tns:GetPrayersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePrayer">
+      <wsdl:input message="tns:RemovePrayerSoapIn" />
+      <wsdl:output message="tns:RemovePrayerSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TCMIContentSoap" type="tns:TCMIContentSoap">
@@ -230,6 +254,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RemovePrayer">
+      <soap:operation soapAction="http://tcmicrossroadcontent.apphb.com/RemovePrayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="TCMIContentSoap12" type="tns:TCMIContentSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -280,6 +313,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPrayers">
       <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/GetPrayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePrayer">
+      <soap12:operation soapAction="http://tcmicrossroadcontent.apphb.com/RemovePrayer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

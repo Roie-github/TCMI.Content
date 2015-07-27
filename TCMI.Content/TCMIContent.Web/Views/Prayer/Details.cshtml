@@ -1,0 +1,96 @@
+﻿@model TCMIContent.Web.Models.PrayerMeta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("input[type=text]").addClass("form-control").attr("disabled", true);
+        $("input[type=email]").addClass("form-control").attr("disabled", true);
+        $("input[type=datetime]").addClass("form-control").attr("disabled", true);
+        $("textarea").addClass("form-control").attr("disabled", true);
+        $("select").addClass("form-control").attr("disabled", true);
+    });
+</script>
+
+<link href="~/Content/default.css" rel="stylesheet" />
+
+
+<header>
+    <img src="~/Images/logo.png" />
+</header>
+<div class="container">
+
+    <div class="page-header"><h2>Details</h2></div>
+
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">Details</div>
+
+        <div class="panel-body">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+
+                @Html.EditorFor(model => model.Name)
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+
+                @Html.EditorFor(model => model.Email)
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone)
+
+                @Html.EditorFor(model => model.Phone)
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Confidentiality)
+
+                @Html.DropDownListFor(model => model.Confidentiality, new List<SelectListItem> {
+                                                                new SelectListItem { Value="Public",Text="Public"},
+                                                                new SelectListItem{ Value="Anonymous",Text="Anonymous"},
+                                                                new SelectListItem{ Value="Private",Text="Private"}
+                                                                  }, "Select Confidentiality")
+
+            </div>
+
+            <div class="form-group">
+                <label>Prayer Request</label>
+
+                @Html.TextAreaFor(model => model.PrayerRequest)
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Received)
+
+                @Html.EditorFor(model => model.Received)
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Answered)
+
+                @Html.EditorFor(model => model.Answered)
+
+            </div>
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Update", "Update", new { id = Model.id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div> <!--end panel-->
+</div>
+
