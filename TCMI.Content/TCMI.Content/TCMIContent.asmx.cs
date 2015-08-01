@@ -112,6 +112,11 @@ namespace TCMI.Content
             string returnValue = db.RemoveOnSubmit(id);
             return returnValue;
         }
+        [WebMethod]
+        public string getData()
+        {
+            return "Success";
+        }
         
     }
 }
