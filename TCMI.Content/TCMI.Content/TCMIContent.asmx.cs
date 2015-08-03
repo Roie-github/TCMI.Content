@@ -39,7 +39,7 @@ namespace TCMI.Content
         }
 
         [WebMethod]
-        public string UpdatePrayer(int id, string name, string email, string phone, string confidential, string request, int prayed)
+        public string UpdatePrayer(int id, string name, string email, string phone, string confidential, string request, int prayed,bool answered)
         {
             //to do sanitized parameters
 
@@ -50,15 +50,15 @@ namespace TCMI.Content
             p.Confidentiality = confidential;
             p.PrayerRequest = request;
             p.Prayed = prayed;
-
+            p.Answered = answered;
 
             PrayerRepository db = new PrayerRepository();
             string returnValue = db.UpdateOnSubmit(p);
             return returnValue;
         }
 
-        [WebMethod(MessageName="UpdatePrayed")]
-        public string UpdatePrayer(int id)
+        [WebMethod]
+        public string HadPrayed(int id)
         {
             //to do sanitized parameters
 
@@ -113,11 +113,6 @@ namespace TCMI.Content
             string returnValue = db.RemoveOnSubmit(id);
             return returnValue;
         }
-        [WebMethod]
-        public string getData()
-        {
-            return "Success";
-        }
-        
+     
     }
 }
