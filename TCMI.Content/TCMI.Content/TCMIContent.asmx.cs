@@ -58,20 +58,6 @@ namespace TCMI.Content
         }
 
         [WebMethod]
-        public string HadPrayed(int id)
-        {
-            //to do sanitized parameters
-
-            Prayer p = new PrayerRepository().GetById(id);
-            p.Prayed = p.Prayed + 1;
-
-
-            PrayerRepository db = new PrayerRepository();
-            string returnValue = db.UpdateOnSubmit(p);
-            return returnValue;
-        }
-
-        [WebMethod]
         public string AnsweredPrayer(int id)
         {
             //to do sanitized parameters
@@ -95,7 +81,6 @@ namespace TCMI.Content
             string returnValue = db.UpdateOnSubmit(p);
             return returnValue;
         }
-
 
         [WebMethod]
         public List<Prayer> GetPrayers()
