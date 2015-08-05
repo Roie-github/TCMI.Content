@@ -26,5 +26,6 @@ namespace Models
         }
     
         public virtual DbSet<Prayer> Prayers { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
     }
 }

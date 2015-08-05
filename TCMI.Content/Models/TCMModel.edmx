@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TCMIDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Venue" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="DateOfEvent" Type="date" Nullable="false" />
+          <Property Name="Time" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Expired" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Prayers">
           <Key>
             <PropertyRef Name="id" />
@@ -20,6 +32,7 @@
           <Property Name="Answered" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TCMIDBModelStoreContainer">
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prayers" EntityType="Self.Prayers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -28,6 +41,7 @@
       <Schema Namespace="TCMIDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TCMIDBContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Prayers" EntityType="TCMIDBModel.Prayer" />
+          <EntitySet Name="Events" EntityType="TCMIDBModel.Event" />
         </EntityContainer>
         <EntityType Name="Prayer">
           <Key>
@@ -42,6 +56,18 @@
           <Property Name="Received" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Prayed" Type="Int32" Nullable="false" />
           <Property Name="Answered" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Venue" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfEvent" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Expired" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -60,6 +86,19 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="TCMIDBModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="DateOfEvent" ColumnName="DateOfEvent" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

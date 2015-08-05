@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs">
+      <DependentUpon>TCMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Prayer.cs">
       <DependentUpon>TCMModel.tt</DependentUpon>
     </Compile>

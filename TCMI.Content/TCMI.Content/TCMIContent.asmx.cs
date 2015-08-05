@@ -39,7 +39,7 @@ namespace TCMI.Content
         }
 
         [WebMethod]
-        public string UpdatePrayer(int id, string name, string email, string phone, string confidential, string request, int prayed,bool answered)
+        public string UpdatePrayer(int id, string name, string email, string phone, string confidential, string request, int prayed, bool answered)
         {
             //to do sanitized parameters
 
@@ -98,6 +98,79 @@ namespace TCMI.Content
             string returnValue = db.RemoveOnSubmit(id);
             return returnValue;
         }
-     
+
+        /* Event */
+        [WebMethod]
+        public string AddEvent(string title, string desc, DateTime date, string time, string venue)
+        {
+            EventRepository er = new EventRepository();
+            Event e = new Event
+            {
+                id = 0,
+                Title = title,
+                Description = desc,
+                DateOfEvent = date,
+                Time = time,
+                Venue = venue,
+                Expired = false
+            };
+            string result = er.InsertOnSubmit(e);
+            return result;
+        }
+
+        [WebMethod]
+        public string UpdateEvent(int id, string title, string desc, DateTime date, string time, string venue, bool isexpired)
+        {
+            EventRepository db = new EventRepository();
+            Event e = new Event
+            {
+                id = id,
+                Title = title,
+                Description = desc,
+                DateOfEvent = date,
+                Time = time,
+                Venue = venue,
+                Expired = isexpired
+            };
+            string result = db.UpdateOnSubmit(e);
+            return result;
+        }
+
+        [WebMethod]
+        public string UpdateEventExpired(int id)
+        {
+            EventRepository db = new EventRepository();
+            Event e = db.GetById(id);
+            e.Expired = true;
+
+            string result = db.UpdateOnSubmit(e);
+            return result;
+        }
+
+        [WebMethod]
+        public List<Event> GetAllEvents()
+        {
+            EventRepository db = new EventRepository();
+            return db.GetAll().ToList();
+        }
+
+        [WebMethod]
+        public List<Event> GetActiveEvents()
+        {
+
+            EventRepository db = new EventRepository();
+            return db.GetAll().ToList().Where(e => e.Expired == false).ToList();
+        }
+
+        [WebMethod]
+        public string RemoveEvent(int id)
+        {
+            //to do sanitized parameters
+
+            EventRepository db = new EventRepository();
+            string returnValue = db.RemoveOnSubmit(id);
+            return returnValue;
+        }
+
     }
 }

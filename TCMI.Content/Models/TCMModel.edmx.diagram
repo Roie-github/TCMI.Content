@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="116dc0c07d0b4b86a34892b1a8bbef76" Name="Diagram1">
         <EntityTypeShape EntityType="TCMIDBModel.Prayer" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TCMIDBModel.Event" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
