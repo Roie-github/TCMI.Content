@@ -6,6 +6,7 @@ using System.Web.Services;
 using Models;
 using DataRepository;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace TCMI.Content
 {
@@ -91,12 +92,14 @@ namespace TCMI.Content
         }
 
 		[WebMethod]
-		public void GetPrayersJson()
+		public string GetPrayersJson()
 		{
 			PrayerRepository db = new PrayerRepository();
 			//return db.GetAll().ToList();
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            Context.Response.Write(js.Serialize(db.GetAll().ToList()));
+           // JavaScriptSerializer js = new JavaScriptSerializer();
+            //Context.Response.Write(js.Serialize(db.GetAll().ToList()));
+           List<Prayer>    list=   db.GetAll().ToList();
+            return JsonConvert.SerializeObject(list, Newtonsoft.Json.Formatting.Indented);
 		}
 
         [WebMethod]
