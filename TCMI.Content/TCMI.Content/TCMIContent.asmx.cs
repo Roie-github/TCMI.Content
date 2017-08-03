@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using Models;
 using DataRepository;
+using System.Web.Script.Serialization;
 
 namespace TCMI.Content
 {
@@ -88,6 +89,15 @@ namespace TCMI.Content
             PrayerRepository db = new PrayerRepository();
             return db.GetAll().ToList();
         }
+
+		[WebMethod]
+		public void GetPrayersJson()
+		{
+			PrayerRepository db = new PrayerRepository();
+			//return db.GetAll().ToList();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(db.GetAll().ToList()));
+		}
 
         [WebMethod]
         public string RemovePrayer(int id)
